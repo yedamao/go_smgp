@@ -61,7 +61,7 @@ func main() {
 	}
 
 	// send
-	err = ts.Submit(
+	_, err = ts.Submit(
 		protocol.NEED_REPORT, protocol.NORMAL_PRIORITY,
 		"", "00", "0", "0",
 		protocol.GB18030,

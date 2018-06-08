@@ -96,13 +96,14 @@ func (s *Smgp) Submit(
 	destTermID []string, msgContent []byte,
 
 	TP_udhi, PkTotal, PkNumber uint8, // 长短信字段
-) error {
+) (uint32, error) {
 
 	pMsgSrc := &protocol.OctetString{Data: []byte(s.SPID), FixedLen: 8}
 	pMServiceID := &protocol.OctetString{FixedLen: 21}
 
+	sequence := s.newSeqNum()
 	op, err := protocol.NewSubmit(
-		s.newSeqNum(),
+		sequence,
 		needReport, priority,
 		serviceId, feeType, feeCode, fixedFee,
 		msgFormat,
@@ -119,10 +120,10 @@ func (s *Smgp) Submit(
 		nil, nil, pMServiceID.Byte(),
 	)
 	if err != nil {
-		return err
+		return 0, err
 	}
 
-	return s.Write(op)
+	return sequence, s.Write(op)
 }
 
 func (s *Smgp) DeliverResp(
