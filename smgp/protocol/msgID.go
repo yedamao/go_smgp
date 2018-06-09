@@ -9,7 +9,7 @@ type Id struct {
 	raw [10]byte
 }
 
-func (i *Id) String() string {
+func (i Id) String() string {
 	return hex.EncodeToString(i.raw[:])
 }
 
