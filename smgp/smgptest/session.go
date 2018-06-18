@@ -9,7 +9,7 @@ import (
 )
 
 func newSession(rawConn net.Conn) {
-	s := &Session{connp.Conn{Conn: rawConn}}
+	s := &Session{*connp.NewConn(rawConn)}
 
 	// check login
 	op, err := s.Read()

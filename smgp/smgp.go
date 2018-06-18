@@ -55,7 +55,7 @@ func (s *Smgp) Connect(addr string) error {
 		return err
 
 	}
-	s.Conn = conn.Conn{Conn: connection}
+	s.Conn = *conn.NewConn(connection)
 
 	return nil
 }
