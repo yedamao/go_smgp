@@ -294,7 +294,7 @@ func (op *Submit) String() string {
 	}
 
 	fmt.Fprintln(&b, "MsgLength: ", op.MsgLength)
-	fmt.Fprintln(&b, "MsgContent: ", op.MsgContent)
+	fmt.Fprintln(&b, "MsgContent: ", string(op.MsgContent))
 
 	return b.String()
 }
