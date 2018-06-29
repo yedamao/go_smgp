@@ -121,7 +121,7 @@ func (s Status) String() string {
 		msg = "SP帐号过有效期"
 
 	default:
-		msg = "Status Unknown"
+		msg = "Status Unknown: " + strconv.Itoa(int(s))
 	}
 
 	return msg
