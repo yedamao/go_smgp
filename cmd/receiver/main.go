@@ -22,7 +22,7 @@ func init() {
 	flag.Parse()
 }
 
-var sequenceID uint32 = 0
+var sequenceID uint32
 
 func newSeqNum() uint32 {
 	sequenceID++
@@ -46,6 +46,8 @@ func main() {
 		os.Exit(-1)
 	}
 	fmt.Println("connect succ")
+
+	defer fmt.Println("Done")
 
 	for {
 
@@ -87,6 +89,4 @@ func main() {
 				op.GetHeader().RequestID)
 		}
 	}
-
-	fmt.Println("Done")
 }
