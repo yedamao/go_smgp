@@ -138,6 +138,17 @@ func (s *Smgp) DeliverResp(
 	return s.Write(op)
 }
 
+// ActiveTest operation
+func (s *Smgp) ActiveTest() error {
+
+	op, err := protocol.NewActiveTest(s.newSeqNum())
+	if err != nil {
+		return err
+	}
+
+	return s.Write(op)
+}
+
 func (s *Smgp) ActiveTestResp(sequenceID uint32) error {
 
 	op, err := protocol.NewActiveTestResp(sequenceID)
