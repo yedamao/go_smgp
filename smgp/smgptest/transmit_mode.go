@@ -8,7 +8,7 @@ import (
 	"github.com/yedamao/go_smgp/smgp/protocol"
 )
 
-// TRANSMIT_MODE session
+// TransmitSession TRANSMIT_MODE session
 type TransmitSession struct {
 	*Session
 }
@@ -34,6 +34,7 @@ func (s *TransmitSession) sendWorker() {
 				return
 			}
 		}
+
 	}
 }
 
@@ -59,8 +60,8 @@ func (s *TransmitSession) recvWorker() {
 
 		case protocol.SMGP_SUBMIT:
 			log.Println(op)
-			fakeId := [10]byte{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-			s.SubmitResp(op.GetHeader().SequenceID, fakeId, protocol.STAT_OK)
+			fakeID := [10]byte{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+			s.SubmitResp(op.GetHeader().SequenceID, fakeID, protocol.STAT_OK)
 
 		case protocol.SMGP_ACTIVE_TEST:
 			log.Println("ActiveTest ...")

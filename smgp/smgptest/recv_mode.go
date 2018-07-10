@@ -8,7 +8,7 @@ import (
 	"github.com/yedamao/go_smgp/smgp/protocol"
 )
 
-// RECEIVE_MODE session
+// RecvSession RECEIVE_MODE session
 type RecvSession struct {
 	*Session
 }

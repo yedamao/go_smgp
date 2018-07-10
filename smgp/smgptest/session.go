@@ -44,11 +44,12 @@ func newSession(rawConn net.Conn) {
 	}
 }
 
-// 代表sp->运营商的一条连接
+// Session 代表sp->运营商的一条连接
 type Session struct {
 	connp.Conn
 }
 
+// LoginResp operation
 func (s *Session) LoginResp(
 	sequenceID uint32, status protocol.Status,
 	authenticatorServer string, serverVersion uint8,
@@ -62,6 +63,7 @@ func (s *Session) LoginResp(
 	return s.Write(op)
 }
 
+// SubmitResp operation
 func (s *Session) SubmitResp(sequenceID uint32, msgID [10]byte, status protocol.Status) error {
 
 	op, err := protocol.NewSubmitResp(sequenceID, msgID, status)
@@ -72,6 +74,7 @@ func (s *Session) SubmitResp(sequenceID uint32, msgID [10]byte, status protocol.
 	return s.Write(op)
 }
 
+// Deliver operation
 func (s *Session) Deliver() error {
 
 	op, err := protocol.NewDeliver(
@@ -86,6 +89,7 @@ func (s *Session) Deliver() error {
 	return s.Write(op)
 }
 
+// ActiveTestResp operation
 func (s *Session) ActiveTestResp(sequenceID uint32) error {
 
 	op, err := protocol.NewActiveTestResp(sequenceID)
@@ -96,6 +100,7 @@ func (s *Session) ActiveTestResp(sequenceID uint32) error {
 	return s.Write(op)
 }
 
+// ExitResp operation
 func (s *Session) ExitResp(sequenceID uint32) error {
 
 	op, err := protocol.NewExitResp(sequenceID)

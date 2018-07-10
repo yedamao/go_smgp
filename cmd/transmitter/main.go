@@ -14,9 +14,9 @@ import (
 
 var (
 	addr         = flag.String("addr", ":8890", "smgw addr(运营商地址)")
-	clientId     = flag.String("clientID", "", "登陆账号")
+	clientID     = flag.String("clientID", "", "登陆账号")
 	sharedSecret = flag.String("secret", "", "登陆密码")
-	spId         = flag.String("spID", "", "企业代码")
+	spID         = flag.String("spID", "", "企业代码")
 
 	spNumber   = flag.String("sp-number", "", "SP的接入号码")
 	destNumber = flag.String("dest-number", "", "接收手机号码, 86..., 多个使用，分割")
@@ -27,7 +27,7 @@ func init() {
 	flag.Parse()
 }
 
-var sequenceID uint32 = 0
+var sequenceID uint32
 
 func newSeqNum() uint32 {
 	sequenceID++
@@ -37,7 +37,7 @@ func newSeqNum() uint32 {
 
 func main() {
 
-	if "" == *clientId || "" == *sharedSecret {
+	if "" == *clientID || "" == *sharedSecret {
 		fmt.Println("Arg error: clientID or sharedSecret must not be empty .")
 		os.Exit(-1)
 	}
@@ -46,7 +46,7 @@ func main() {
 	fmt.Println("destNumbers: ", destNumbers)
 
 	ts, err := smgp.NewSmgp(
-		*addr, *clientId, *sharedSecret, *spId, protocol.SEND_MODE, newSeqNum,
+		*addr, *clientID, *sharedSecret, *spID, protocol.SEND_MODE, newSeqNum,
 	)
 	if err != nil {
 		fmt.Println("Connection Err", err)

@@ -10,6 +10,7 @@ import (
 	"github.com/yedamao/go_smgp/smgp/protocol"
 )
 
+// ErrReadLen length error
 var ErrReadLen = errors.New("Read length not match PacketLength")
 
 // Conn is a sgip connection can read/write protocol Operation
@@ -19,7 +20,7 @@ type Conn struct {
 	w *bufio.Writer
 }
 
-// new a cmpp Conn
+// NewConn new a cmpp Conn
 func NewConn(fd net.Conn) *Conn {
 	return &Conn{
 		Conn: fd,
@@ -60,6 +61,7 @@ func (c *Conn) Write(op protocol.Operation) error {
 	return err
 }
 
+// Close close smgp conn
 func (c *Conn) Close() {
 	c.Conn.Close()
 }

@@ -13,6 +13,7 @@ type Server struct {
 	done chan struct{}
 }
 
+// NewServer new mock smgp operator server
 func NewServer(addr string) (*Server, error) {
 
 	laddr, err := net.ResolveTCPAddr("tcp", addr)
@@ -31,6 +32,7 @@ func NewServer(addr string) (*Server, error) {
 	}, nil
 }
 
+// Run run mock server
 func (s *Server) Run() {
 
 	for {
@@ -55,6 +57,7 @@ func (s *Server) Run() {
 	}
 }
 
+// Stop stop mock server
 func (s *Server) Stop() {
 	close(s.done)
 }
