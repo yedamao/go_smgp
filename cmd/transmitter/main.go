@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/yedamao/go_sgip/sgip/encoding"
+	"github.com/yedamao/encoding"
 
 	"github.com/yedamao/go_smgp/smgp"
 	"github.com/yedamao/go_smgp/smgp/protocol"
