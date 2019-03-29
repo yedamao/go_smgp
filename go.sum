@@ -1,0 +1,4 @@
+github.com/yedamao/encoding v1.0.0 h1:b72pu/kVC8v+NeTaww8MoZHRasqWQ5/aviVsUmpC7Ys=
+github.com/yedamao/encoding v1.0.0/go.mod h1:nUnxSA7GmQ1cvr55BAvfCm+CXkjwCt9Gvc7RMWhSyc0=
+golang.org/x/text v0.3.0 h1:g61tztE5qeGQ89tm6NTjjM9VPIm088od1l6aSorWRWg=
+golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
