@@ -120,7 +120,6 @@ func NewSubmit(
 
 	if TP_pid != nil {
 		op.Options[TAG_TP_pid] = TP_pid
-		length = length + 1
 	}
 	if TP_udhi != nil {
 		op.Options[TAG_TP_udhi] = TP_udhi
