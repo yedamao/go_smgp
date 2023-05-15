@@ -28,7 +28,7 @@ type Submit struct {
 	Reserve         *OctetString   // 保留
 
 	// 可选参数
-	options Options
+	Options Options
 }
 
 func NewSubmit(
@@ -116,53 +116,53 @@ func NewSubmit(
 	length = length + 8
 
 	// 可选参数
-	op.options = make(Options)
+	op.Options = make(Options)
 
 	if TP_pid != nil {
-		op.options[TAG_TP_pid] = TP_pid
+		op.Options[TAG_TP_pid] = TP_pid
 		length = length + 1
 	}
 	if TP_udhi != nil {
-		op.options[TAG_TP_udhi] = TP_udhi
+		op.Options[TAG_TP_udhi] = TP_udhi
 	}
 	if LinkID != nil {
-		op.options[TAG_LinkID] = LinkID
+		op.Options[TAG_LinkID] = LinkID
 	}
 	if MsgSrc != nil {
-		op.options[TAG_MsgSrc] = MsgSrc
+		op.Options[TAG_MsgSrc] = MsgSrc
 	}
 	if ChargeUserType != nil {
-		op.options[TAG_ChargeUserType] = ChargeUserType
+		op.Options[TAG_ChargeUserType] = ChargeUserType
 	}
 	if ChargeTermType != nil {
-		op.options[TAG_ChargeTermType] = ChargeTermType
+		op.Options[TAG_ChargeTermType] = ChargeTermType
 	}
 	if ChargeTermPseudo != nil {
-		op.options[TAG_ChargeTermPseudo] = ChargeTermPseudo
+		op.Options[TAG_ChargeTermPseudo] = ChargeTermPseudo
 	}
 	if DestTermType != nil {
-		op.options[TAG_DestTermType] = DestTermType
+		op.Options[TAG_DestTermType] = DestTermType
 	}
 	if DestTermPseudo != nil {
-		op.options[TAG_DestTermPseudo] = DestTermPseudo
+		op.Options[TAG_DestTermPseudo] = DestTermPseudo
 	}
 	if PkTotal != nil {
-		op.options[TAG_PkTotal] = PkTotal
+		op.Options[TAG_PkTotal] = PkTotal
 	}
 	if PKNumber != nil {
-		op.options[TAG_PkNumber] = PKNumber
+		op.Options[TAG_PkNumber] = PKNumber
 	}
 	if SubmitMsgType != nil {
-		op.options[TAG_SubmitMsgType] = SubmitMsgType
+		op.Options[TAG_SubmitMsgType] = SubmitMsgType
 	}
 	if SPDealResult != nil {
-		op.options[TAG_SPDealResult] = SPDealResult
+		op.Options[TAG_SPDealResult] = SPDealResult
 	}
 	if MServiceID != nil {
-		op.options[TAG_MServiceID] = MServiceID
+		op.Options[TAG_MServiceID] = MServiceID
 	}
 	// 可选字段长度
-	length = length + uint32(op.options.Len())
+	length = length + uint32(op.Options.Len())
 
 	op.PacketLength = length
 	op.RequestID = SMGP_SUBMIT
@@ -225,7 +225,7 @@ func ParseSubmit(hdr *Header, data []byte) (*Submit, error) {
 
 	// parse options
 	var err error
-	if op.options, err = ParseOptions(data[p:]); err != nil {
+	if op.Options, err = ParseOptions(data[p:]); err != nil {
 		return nil, err
 	}
 
@@ -263,7 +263,7 @@ func (op *Submit) Serialize() []byte {
 	b = append(b, op.Reserve.Byte()...)
 
 	// 可选字段
-	b = append(b, op.options.Serialize()...)
+	b = append(b, op.Options.Serialize()...)
 
 	return b
 }

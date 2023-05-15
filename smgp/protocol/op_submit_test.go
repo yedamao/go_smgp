@@ -49,8 +49,8 @@ func TestSubmit(t *testing.T) {
 		t.Error("parsed submit not match")
 	}
 
-	if submit.options.TP_udhi() != TP_pid ||
-		submit.options.MServiceID() != MServiceID.String() {
+	if submit.Options.TP_udhi() != TP_pid ||
+		submit.Options.MServiceID() != MServiceID.String() {
 
 		t.Error("options field not match")
 	}
