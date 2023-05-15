@@ -1,5 +1,5 @@
 # SMGP 3.0
-[![Build Status](https://travis-ci.org/yedamao/go_smgp.svg?branch=master)](https://travis-ci.org/yedamao/go_smgp)
+[![Build Status](https://github.com/yedamao/go_smgp/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/yedamao/go_smgp/actions/workflows/build.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/yedamao/go_smgp)](https://goreportcard.com/report/github.com/yedamao/go_smgp)
 [![codecov](https://codecov.io/gh/yedamao/go_smgp/branch/master/graph/badge.svg)](https://codecov.io/gh/yedamao/go_smgp)
 
