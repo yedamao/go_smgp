@@ -2,6 +2,9 @@ package protocol
 
 const (
 	VERSION uint8 = 0x30
+
+	// 系统中每个消息包最大不超过2K字节
+	MAX_OP_SIZE = 2048
 )
 
 // RequestId
