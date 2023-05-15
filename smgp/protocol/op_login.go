@@ -99,7 +99,7 @@ func (l *Login) String() string {
 	fmt.Fprintln(&b, "AuthenticatorClient: ", l.AuthenticatorClient)
 	fmt.Fprintln(&b, "LoginMode: ", l.LoginMode)
 	fmt.Fprintln(&b, "TimeStamp: ", l.TimeStamp)
-	fmt.Fprintln(&b, "ClientVersion: ", l.ClientVersion)
+	fmt.Fprintf(&b, "ClientVersion: 0x%x\n", l.ClientVersion)
 
 	return b.String()
 }
@@ -175,7 +175,7 @@ func (l *LoginResp) String() string {
 	fmt.Fprintln(&b, "--- LoginResp ---")
 	fmt.Fprintln(&b, "Status: ", l.Status)
 	fmt.Fprintln(&b, "AuthenticatorServer: ", l.AuthenticatorServer)
-	fmt.Fprintln(&b, "ServerVersion: ", l.ServerVersion)
+	fmt.Fprintf(&b, "ServerVersion: 0x%x\n", l.ServerVersion)
 
 	return b.String()
 }
